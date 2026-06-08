@@ -259,6 +259,104 @@ body {
     color: var(--white);
 }
 
+/* Quick Course Deck */
+.course-deck-section {
+    padding: var(--spacing-md) 0 0;
+    background: var(--white);
+}
+
+.deck-label {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.course-deck {
+    display: flex;
+    gap: var(--spacing-sm);
+    overflow-x: auto;
+    padding-bottom: var(--spacing-xs);
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.course-deck::-webkit-scrollbar {
+    height: 6px;
+}
+
+.course-deck::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.deck-card {
+    flex: 1 1 0;
+    min-width: 150px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    padding: var(--spacing-sm) 0.75rem;
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.deck-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-color: #667eea;
+}
+
+.deck-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.deck-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.deck-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.15rem 0.6rem;
+    border-radius: 1rem;
+}
+
+.deck-tag.free {
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--accent-color);
+}
+
+.deck-tag.price {
+    background: rgba(102, 126, 234, 0.12);
+    color: #667eea;
+}
+
+.deck-tag.soon {
+    background: rgba(118, 75, 162, 0.12);
+    color: #764ba2;
+}
+
+@media (max-width: 600px) {
+    .deck-card {
+        min-width: 130px;
+    }
+}
+
 .course-icon {
     font-size: 4rem;
     margin-bottom: var(--spacing-sm);
