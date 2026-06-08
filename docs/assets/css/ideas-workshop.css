@@ -387,6 +387,30 @@ body {
     margin-bottom: var(--spacing-sm);
 }
 
+.qr-pay {
+    margin-top: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.qr-pay-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.qr-pay-img {
+    display: block;
+    width: 180px;
+    height: 180px;
+    background: #ffffff;
+    padding: 12px;
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
 .form-note {
     margin-top: var(--spacing-md);
     font-size: 0.95rem;
