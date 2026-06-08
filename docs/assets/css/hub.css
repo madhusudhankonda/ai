@@ -368,6 +368,17 @@ body {
     color: var(--text-primary);
 }
 
+.course-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.course-title-link:hover {
+    color: #667eea;
+    text-decoration: underline;
+}
+
 .course-description {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
