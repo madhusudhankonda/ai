@@ -567,3 +567,29 @@ body {
         max-width: 100%;
     }
 }
+
+/* Early-bird pricing */
+.price-was {
+    text-decoration: line-through;
+    opacity: 0.7;
+    font-weight: 600;
+    margin-right: 0.3rem;
+}
+
+.price-now {
+    font-weight: 800;
+}
+
+.early-bird-badge {
+    display: inline-block;
+    background: #ffd54f;
+    color: #7a4f01;
+    font-weight: 800;
+    padding: 0.1em 0.6em;
+    border-radius: 999px;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-left: 0.3rem;
+    vertical-align: middle;
+}

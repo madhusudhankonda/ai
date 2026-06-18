@@ -427,6 +427,30 @@ body {
     color: var(--text-secondary);
 }
 
+.price-was {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+    opacity: 0.65;
+    font-weight: 600;
+    font-size: 0.5em;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+}
+
+.early-bird-badge {
+    display: inline-block;
+    background: #ffd54f;
+    color: #7a4f01;
+    font-weight: 800;
+    padding: 0.15em 0.7em;
+    border-radius: 999px;
+    font-size: 0.28em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+}
+
 .course-actions {
     display: flex;
     gap: var(--spacing-sm);
