@@ -201,7 +201,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-# Marimo
-marimo/_static/
-marimo/_lsp/
-__marimo__/
+# Book source (PDF generated locally; hosted on Supabase)
+book-src/node_modules/
+book-src/package-lock.json
+book-src/*.pdf

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI for Beginners — Companion Guide</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 22mm 18mm 24mm 18mm;
+      @bottom-center {
+        content: "Madhusudhan Konda · chocolateminds.com · v1.0 · June 2026";
+        font-size: 8pt;
+        color: #888;
+      }
+    }
+    @page :first { margin: 0; @bottom-center { content: none; } }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.65;
+      color: #1a1a2e;
+      margin: 0;
+    }
+    h1, h2, h3 { color: #3d2f7a; line-height: 1.25; }
+    h1 { font-size: 22pt; margin: 0 0 0.4em; }
+    h2 { font-size: 15pt; margin: 1.6em 0 0.5em; page-break-after: avoid; border-bottom: 2px solid #667eea; padding-bottom: 0.25em; }
+    h3 { font-size: 11.5pt; margin: 1.1em 0 0.35em; page-break-after: avoid; }
+    p { margin: 0.5em 0; }
+    ul, ol { margin: 0.4em 0 0.8em; padding-left: 1.3em; }
+    li { margin: 0.25em 0; }
+    .cover {
+      page-break-after: always;
+      min-height: 297mm;
+      background: linear-gradient(145deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2.5cm;
+    }
+    .cover .brand { font-size: 11pt; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.9; margin-bottom: 1.5em; }
+    .cover h1 { color: #fff; font-size: 32pt; margin-bottom: 0.2em; }
+    .cover .sub { font-size: 16pt; font-weight: 600; opacity: 0.95; margin-bottom: 2em; }
+    .cover .tagline { font-size: 12pt; max-width: 14cm; opacity: 0.92; line-height: 1.6; }
+    .cover .author { margin-top: 3em; font-size: 13pt; font-weight: 700; }
+    .cover .meta { margin-top: 0.5em; font-size: 10pt; opacity: 0.85; }
+    .cover .visual {
+      width: 140px; height: 140px; margin: 2em auto 0;
+      border-radius: 24px; background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64pt;
+    }
+    .toc { page-break-after: always; padding-top: 1cm; }
+    .toc h2 { border: none; }
+    .toc ol { list-style: none; padding: 0; }
+    .toc li { padding: 0.35em 0; border-bottom: 1px dotted #ccc; display: flex; justify-content: space-between; }
+    .toc .num { color: #667eea; font-weight: 700; margin-right: 0.5em; }
+    section { page-break-inside: avoid; }
+    .box {
+      border-radius: 8px; padding: 0.75em 1em; margin: 0.9em 0;
+      page-break-inside: avoid;
+    }
+    .tip { background: #eef2ff; border-left: 4px solid #667eea; }
+    .try { background: #ecfdf5; border-left: 4px solid #10b981; }
+    .warn { background: #fff7ed; border-left: 4px solid #f59e0b; }
+    .box strong { display: block; margin-bottom: 0.25em; font-size: 9.5pt; text-transform: uppercase; letter-spacing: 0.05em; }
+    table {
+      width: 100%; border-collapse: collapse; margin: 0.8em 0; font-size: 9.5pt;
+      page-break-inside: avoid;
+    }
+    th, td { border: 1px solid #d8dce8; padding: 0.45em 0.6em; text-align: left; vertical-align: top; }
+    th { background: #f0f2fa; color: #3d2f7a; }
+    .flow {
+      display: flex; align-items: center; justify-content: center; gap: 0.3em;
+      margin: 1em 0; flex-wrap: wrap; page-break-inside: avoid;
+    }
+    .flow-step {
+      background: #667eea; color: #fff; padding: 0.5em 0.8em;
+      border-radius: 8px; font-weight: 700; font-size: 9.5pt; text-align: center; min-width: 70px;
+    }
+    .flow-arrow { color: #764ba2; font-weight: 800; font-size: 14pt; }
+    .prompt {
+      background: #1a1a2e; color: #e8eaf6; padding: 0.8em 1em;
+      border-radius: 8px; font-family: "Courier New", monospace; font-size: 9pt;
+      line-height: 1.45; white-space: pre-wrap; page-break-inside: avoid;
+    }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6em; margin: 0.8em 0; }
+    .card {
+      border: 1px solid #d8dce8; border-radius: 8px; padding: 0.6em 0.75em;
+      page-break-inside: avoid;
+    }
+    .card h4 { margin: 0 0 0.3em; font-size: 10pt; color: #667eea; }
+    .footer-note { font-size: 9pt; color: #666; margin-top: 2em; border-top: 1px solid #eee; padding-top: 0.8em; }
+    .page-break { page-break-before: always; }
+    .mock-ui {
+      border: 2px solid #667eea; border-radius: 12px; overflow: hidden;
+      margin: 1em 0; page-break-inside: avoid; box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+    }
+    .mock-titlebar {
+      background: linear-gradient(90deg, #667eea, #764ba2); color: #fff;
+      padding: 0.4em 0.8em; font-size: 9pt; font-weight: 700;
+    }
+    .mock-body { background: #f7f8fc; padding: 0.8em; }
+    .mock-field {
+      background: #fff; border: 1px solid #d8dce8; border-radius: 6px;
+      padding: 0.35em 0.5em; margin: 0.35em 0; font-size: 9pt; color: #888;
+    }
+    .mock-btn {
+      display: inline-block; background: #667eea; color: #fff;
+      padding: 0.35em 0.9em; border-radius: 6px; font-size: 9pt; font-weight: 700; margin-top: 0.5em;
+    }
+    .worksheet { border: 1px dashed #667eea; border-radius: 8px; padding: 1em; margin: 1em 0; }
+    .worksheet .line {
+      border-bottom: 1px solid #ccc; height: 1.6em; margin: 0.5em 0;
+    }
+    .cheat { font-size: 9pt; }
+    .cheat td:first-child { font-weight: 700; width: 28%; color: #667eea; }
+  </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="brand">ChocolateMinds · Companion Guide</div>
+  <div class="visual">🧒</div>
+  <h1>AI for Beginners</h1>
+  <p class="sub">From Idea → Prompt → App</p>
+  <p class="tagline">A practical handbook for kids, teenagers and young adults who want to understand AI, use it well, and build their first app — without writing code.</p>
+  <p class="author">Madhusudhan Konda</p>
+  <p class="meta">AI Lead &amp; Educator · London · v1.0 · June 2026</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><span><span class="num">1</span> Welcome — what this guide is for</span></li>
+    <li><span><span class="num">2</span> Why AI matters now</span></li>
+    <li><span><span class="num">3</span> What AI actually is (no jargon)</span></li>
+    <li><span><span class="num">4</span> Traditional AI vs Generative AI</span></li>
+    <li><span><span class="num">5</span> The tools you'll use</span></li>
+    <li><span><span class="num">6</span> Prompting — clear beats clever</span></li>
+    <li><span><span class="num">7</span> Turn an idea into a use case</span></li>
+    <li><span><span class="num">8</span> How apps work: input → process → output</span></li>
+    <li><span><span class="num">9</span> Build without code: the loop</span></li>
+    <li><span><span class="num">10</span> Project 1 — Revision planner</span></li>
+    <li><span><span class="num">11</span> Project 2 — Story generator</span></li>
+    <li><span><span class="num">12</span> Project 3 — Quiz app</span></li>
+    <li><span><span class="num">13</span> Share your app with the world</span></li>
+    <li><span><span class="num">14</span> Use AI safely</span></li>
+    <li><span><span class="num">15</span> AI in everyday life</span></li>
+    <li><span><span class="num">16</span> The builder mindset</span></li>
+    <li><span><span class="num">A</span> Workshop timeline (3 hours)</span></li>
+    <li><span><span class="num">B</span> Glossary</span></li>
+    <li><span><span class="num">C</span> Notes for parents &amp; teachers</span></li>
+    <li><span><span class="num">17</span> What's next</span></li>
+  </ol>
+</div>
+
+<!-- 1 WELCOME -->
+<section>
+  <h2>1. Welcome — what this guide is for</h2>
+  <p>I'm Madhusudhan, and I run live AI workshops through ChocolateMinds. This guide goes with the <strong>AI for Beginners</strong> session — the same journey we take in the room, but something you can keep, re-read, and use at home.</p>
+  <p>This is <em>not</em> a textbook full of theory. It's a workbook. By the end, you should know what AI is, how to talk to it properly, and how to go from a rough idea to a working app — even if you've never written a line of code.</p>
+  <p>You need three things: curiosity, clear thinking, and willingness to try. That's it.</p>
+
+  <div class="flow">
+    <div class="flow-step">Idea</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Prompt</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">App</div>
+  </div>
+
+  <p>That's the thread running through this whole guide. We take a simple idea, describe it clearly to AI, and use modern tools to bring it to life. My wider mission is to help thousands of people become AI-literate — not to turn everyone into engineers, but because AI is becoming part of how we learn, work, and create. Like email or smartphones, it's a skill worth having.</p>
+
+  <p>I've run this session with teenagers who'd never opened a code editor, and with parents who wanted to understand what their kids were doing online. The pattern is always the same: once someone builds <em>one</em> small app themselves, the fear drops away. This guide captures that path so you can repeat it at home.</p>
+
+  <div class="tip box">
+    <strong>How to use this guide</strong>
+    Read it before the workshop if you can. During the session, follow along with the three build projects (Chapters 10–12). Afterward, use the prompt templates as copy-paste starting points.
+  </div>
+</section>
+
+<!-- 2 WHY AI -->
+<section>
+  <h2>2. Why AI matters now</h2>
+  <p>AI isn't new. Banks, Netflix, Google Maps, and shopping sites have used it for years — often without you noticing. What changed recently is <strong>access</strong>. Tools like ChatGPT, Claude, and Gemini put AI in your hands. You type normal English; the tool responds.</p>
+  <p>That shift is huge. Before, building with AI meant large technical teams. Now a student, parent, teacher, or small-business owner can use AI as a thinking partner — to explain, plan, draft, brainstorm, and prototype.</p>
+
+  <div class="grid2">
+    <div class="card"><h4>Ask &amp; learn</h4><p>"Explain photosynthesis like I'm 12." Get a clear answer in seconds.</p></div>
+    <div class="card"><h4>Plan &amp; organise</h4><p>Revision timetables, trip plans, weekly to-do lists.</p></div>
+    <div class="card"><h4>Create</h4><p>Stories, posters, emails, quiz questions.</p></div>
+    <div class="card"><h4>Build</h4><p>Describe an app; tools like Lovable or Replit generate a first version.</p></div>
+  </div>
+
+  <div class="warn box">
+    <strong>The catch</strong>
+    Casual use → casual results. Learning to prompt well, check outputs, and iterate — that's where real value comes from. This guide teaches that habit.
+  </div>
+</section>
+
+<!-- 3 WHAT AI IS -->
+<section>
+  <h2>3. What AI actually is (no jargon)</h2>
+  <p>In plain terms: <strong>AI is software that does tasks we usually associate with human intelligence</strong> — understanding language, recognising images, answering questions, spotting patterns, writing text, or making predictions.</p>
+  <p>In our workshops we focus on <strong>Generative AI</strong>: systems that <em>create</em> new content — text, images, code, summaries, lesson plans, or app layouts. That's why it feels magical. It isn't magic.</p>
+
+  <table>
+    <tr><th>What AI is good at</th><th>What to remember</th></tr>
+    <tr><td>Drafting, brainstorming, explaining</td><td>Fast first versions — you refine</td></tr>
+    <tr><td>Following detailed instructions</td><td>Clear prompts beat vague ones</td></tr>
+    <tr><td>Generating code from descriptions</td><td>You still test and decide</td></tr>
+    <tr><td>Sounding confident</td><td>It can be <strong>wrong</strong> — always check important facts</td></tr>
+  </table>
+
+  <p>Generative AI learns patterns from huge amounts of data and predicts what should come next. It doesn't "understand" the world the way you do. Think of it as a very fast assistant: you stay in charge; your judgement matters.</p>
+</section>
+
+<!-- 4 TRADITIONAL VS GEN -->
+<section class="page-break">
+  <h2>4. Traditional AI vs Generative AI</h2>
+  <p><strong>Traditional AI</strong> is usually built for one job: fraud detection at a bank, film recommendations on Netflix, traffic prediction in Maps. Useful — but narrow.</p>
+  <p><strong>Generative AI</strong> is flexible. One tool can explain science, write an email, summarise an article, or help design a quiz app. That flexibility is exciting — and it means you need to <em>guide</em> it with good prompts.</p>
+
+  <table>
+    <tr><th></th><th>Traditional AI</th><th>Generative AI</th></tr>
+    <tr><td><strong>Purpose</strong></td><td>One specific task</td><td>Many tasks via conversation</td></tr>
+    <tr><td><strong>You interact by</strong></td><td>Using an app (often invisible)</td><td>Typing prompts in natural language</td></tr>
+    <tr><td><strong>Output</strong></td><td>Score, recommendation, alert</td><td>Text, images, code, plans</td></tr>
+    <tr><td><strong>Example</strong></td><td>"Suspicious transaction flagged"</td><td>"Create a revision plan for my GCSEs"</td></tr>
+  </table>
+
+  <h3>A short history (why now feels different)</h3>
+  <table>
+    <tr><th>Era</th><th>What happened</th></tr>
+    <tr><td>Decades ago</td><td>AI in labs — chess, expert systems, research</td></tr>
+    <tr><td>2000s–2010s</td><td>AI hidden in apps you already use (search, maps, recommendations)</td></tr>
+    <tr><td>2022 onward</td><td>ChatGPT and similar tools — anyone can type and get answers</td></tr>
+    <tr><td>Today</td><td>App builders let you describe software and get a working prototype</td></tr>
+  </table>
+  <p>You don't need the history to build apps — but it helps to know: you're not "late." This wave is still early, and small builders are experimenting every day.</p>
+</section>
+
+<!-- 5 TOOLS -->
+<section>
+  <h2>5. The tools you'll use</h2>
+  <p>The landscape looks crowded. In practice, beginners touch five buckets:</p>
+
+  <table>
+    <tr><th>Category</th><th>Examples</th><th>Good for</th></tr>
+    <tr><td><strong>Chat assistants</strong></td><td>ChatGPT, Claude, Gemini</td><td>Questions, writing, planning, learning</td></tr>
+    <tr><td><strong>Research helpers</strong></td><td>Built-in web search in some chats</td><td>Summaries — always verify sources</td></tr>
+    <tr><td><strong>Image tools</strong></td><td>DALL·E, Midjourney, Gemini images</td><td>Posters, illustrations, social graphics</td></tr>
+    <tr><td><strong>Docs &amp; slides</strong></td><td>Chat + Canva, Google Docs AI</td><td>Reports, lesson plans, presentations</td></tr>
+    <tr><td><strong>App builders</strong></td><td>Lovable, Replit, similar platforms</td><td>Idea → working prototype without manual coding</td></tr>
+  </table>
+
+  <div class="tip box">
+    <strong>Workshop tools</strong>
+    In our live session we mainly use a chat assistant plus an app builder (Lovable or Replit). You describe the app; the tool generates it; you test and ask for changes. Perfect for version one — not a billion-user product, but a real app you can show someone.
+  </div>
+
+  <h3>Which tool when?</h3>
+  <table>
+    <tr><th>I want to…</th><th>Start here</th></tr>
+    <tr><td>Understand a topic</td><td>ChatGPT, Claude, or Gemini</td></tr>
+    <tr><td>Write or edit text</td><td>Same chat tools — always review the output</td></tr>
+    <tr><td>Make a poster or picture</td><td>Image feature in Gemini or ChatGPT</td></tr>
+    <tr><td>Build a simple website or app</td><td>Lovable or Replit — describe it in one prompt</td></tr>
+    <tr><td>Fix or improve my app</td><td>Back to the app builder: "Change X", "Add Y"</td></tr>
+  </table>
+
+  <div class="mock-ui">
+    <div class="mock-titlebar">💬 Chat assistant — typical screen</div>
+    <div class="mock-body">
+      <p style="font-size:9pt;margin:0 0 0.5em"><strong>You:</strong> Explain the water cycle for a 10-year-old, with a simple diagram description.</p>
+      <p style="font-size:9pt;margin:0;background:#fff;padding:0.5em;border-radius:6px;border:1px solid #e0e4f0"><strong>AI:</strong> Imagine the sun heating a puddle… (evaporation → clouds → rain → rivers)</p>
+    </div>
+  </div>
+
+  <div class="mock-ui">
+    <div class="mock-titlebar">🛠️ App builder — typical screen</div>
+    <div class="mock-body">
+      <p style="font-size:9pt;margin:0 0 0.5em;color:#666">Describe your app in the prompt box → click Build → preview appears on the right.</p>
+      <div class="mock-field">Build a quiz app for geography…</div>
+      <span class="mock-btn">Generate app</span>
+    </div>
+  </div>
+</section>
+
+<!-- 6 PROMPTING -->
+<section>
+  <h2>6. Prompting — clear beats clever</h2>
+  <p>A <strong>prompt</strong> is your instruction to AI. No secret formula — just clear communication. The more specific you are about who it's for, what you want, and how you want it formatted, the better the result.</p>
+
+  <table>
+    <tr><th>Weak</th><th>Stronger</th></tr>
+    <tr><td>"Make me an app."</td><td>"Build a revision planner for GCSE students: subjects, exam dates, hours per day → weekly timetable. Clean, beginner-friendly UI."</td></tr>
+  </table>
+
+  <h3>The four-part prompt</h3>
+  <table>
+    <tr><th>Part</th><th>Question</th><th>Example</th></tr>
+    <tr><td><strong>Context</strong></td><td>What is this about?</td><td>"For a 14-year-old revising maths"</td></tr>
+    <tr><td><strong>Role</strong></td><td>Who should AI act as?</td><td>"Act as a friendly tutor"</td></tr>
+    <tr><td><strong>Task</strong></td><td>What should it do?</td><td>"Explain fractions with two examples"</td></tr>
+    <tr><td><strong>Format</strong></td><td>How should the answer look?</td><td>"Then give 5 practice questions"</td></tr>
+  </table>
+
+  <div class="try box">
+    <strong>Try this now</strong>
+    Open ChatGPT or Gemini and paste: <em>"Act as a friendly AI tutor. Help a beginner understand fractions. Use simple examples, then give 5 practice questions with answers at the end."</em>
+  </div>
+
+  <p>Prompting is a <strong>conversation</strong>. Start → read the answer → improve your instruction → ask again. Don't expect perfection on the first try. Iteration is the skill.</p>
+
+  <h3>10 prompts to try this week</h3>
+  <table class="cheat">
+    <tr><td>Explain simply</td><td>"Explain [topic] to me as if I'm 12. Use one everyday example."</td></tr>
+    <tr><td>Study help</td><td>"Create 10 quiz questions on [topic]. Medium difficulty. Answers at the end."</td></tr>
+    <tr><td>Plan my week</td><td>"I have exams in [subjects] on [dates]. I can study 2 hours/day. Suggest a 7-day plan."</td></tr>
+    <tr><td>Improve writing</td><td>"Make this email clearer and shorter, but still polite: [paste text]"</td></tr>
+    <tr><td>Brainstorm</td><td>"Give me 5 simple app ideas for students aged 13–16. Problem + one-line solution each."</td></tr>
+    <tr><td>Compare</td><td>"What's the difference between ChatGPT and Gemini in plain English?"</td></tr>
+    <tr><td>Check my work</td><td>"Here is my answer to [question]. Tell me what's right, what's wrong, and how to improve."</td></tr>
+    <tr><td>Creative</td><td>"Write a 200-word story for a 7-year-old. Character: a curious robot. Theme: friendship."</td></tr>
+    <tr><td>Step by step</td><td>"Break this task into 5 small steps I can do today: [task]"</td></tr>
+    <tr><td>App design</td><td>"Act as a product designer. List the 3 main screens for a habit tracker for teens."</td></tr>
+  </table>
+</section>
+
+<!-- 7 USE CASE -->
+<section class="page-break">
+  <h2>7. Turn an idea into a use case</h2>
+  <p>"I want to build something with AI" is a start — not a plan. Sharpen it into a <strong>use case</strong>: who it's for, what problem it solves, and what success looks like.</p>
+
+  <h3>Five questions</h3>
+  <ol>
+    <li><strong>Who</strong> is the user?</li>
+    <li><strong>What problem</strong> do they have?</li>
+    <li><strong>What input</strong> will they provide?</li>
+    <li><strong>What output</strong> should the app produce?</li>
+    <li><strong>What does success</strong> look like?</li>
+  </ol>
+
+  <table>
+    <tr><th>App idea</th><th>User</th><th>Problem</th><th>Success</th></tr>
+    <tr><td>Revision planner</td><td>Student</td><td>Doesn't know how to split study time</td><td>Clear weekly plan by subject</td></tr>
+    <tr><td>Birthday invite maker</td><td>Parent / teen</td><td>Needs a nice invite fast</td><td>Ready-to-share invite text or design</td></tr>
+    <tr><td>Quiz app</td><td>Learner</td><td>Wants to test knowledge</td><td>Score + explanations after 5 questions</td></tr>
+  </table>
+
+  <div class="warn box">
+    <strong>Beginner trap</strong>
+    Building too much on day one. Start small. One useful feature. Test it. Then add more. Small apps are easier to finish — and finishing builds confidence.
+  </div>
+
+  <div class="worksheet page-break">
+    <h3 style="margin-top:0">Your turn — use case worksheet</h3>
+    <p>Fill this in before you open an app builder. One idea per box.</p>
+    <p><strong>My app idea (one sentence):</strong></p>
+    <div class="line"></div>
+    <p><strong>Who is it for?</strong></p>
+    <div class="line"></div>
+    <p><strong>What problem does it solve?</strong></p>
+    <div class="line"></div>
+    <p><strong>What will the user type in? (inputs)</strong></p>
+    <div class="line"></div>
+    <div class="line"></div>
+    <p><strong>What will they get back? (output)</strong></p>
+    <div class="line"></div>
+    <p><strong>How will I know it worked?</strong></p>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- 8 APP STRUCTURE -->
+<section>
+  <h2>8. How apps work: input → process → output</h2>
+  <p>Before you prompt an app builder, know what you're asking for. Most apps follow one pattern:</p>
+
+  <div class="flow">
+    <div class="flow-step">Input<br><small style="font-weight:400">what user enters</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Process<br><small style="font-weight:400">what app does</small></div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Output<br><small style="font-weight:400">what user gets</small></div>
+  </div>
+
+  <h3>Example: habit tracker</h3>
+  <table>
+    <tr><th>Input</th><th>Process</th><th>Output</th></tr>
+    <tr><td>Habit name, target days</td><td>Track completions, count streaks</td><td>Progress view, weekly summary</td></tr>
+  </table>
+
+  <h3>Example: story generator</h3>
+  <table>
+    <tr><th>Input</th><th>Process</th><th>Output</th></tr>
+    <tr><td>Character, theme, age group</td><td>Generate story with AI</td><td>Short story text</td></tr>
+  </table>
+
+  <p>Product builders start with the user and the problem — not with "which programming language?" At beginner level, that thinking matters more than code.</p>
+</section>
+
+<!-- 9 BUILD LOOP -->
+<section>
+  <h2>9. Build without code: the loop</h2>
+  <p>In the workshop we don't type code by hand. We use AI-assisted builders. The loop is always the same:</p>
+
+  <div class="flow">
+    <div class="flow-step">Prompt</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Build</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Test</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step">Improve</div>
+  </div>
+
+  <p>After the first version, ask yourself: Does it open? Are fields clear? Does the button work? Is the output useful? Would a friend understand it without you explaining?</p>
+  <p>Then prompt again: <em>"Add placeholder text."</em> <em>"Show the plan in a weekly table."</em> <em>"Make it mobile-friendly."</em> That's modern building.</p>
+
+  <h3>Your first session at home (about 45 minutes)</h3>
+  <ol>
+    <li><strong>10 min</strong> — Open a chat tool; try two prompts from Chapter 6.</li>
+    <li><strong>5 min</strong> — Fill in the use case worksheet (Chapter 7).</li>
+    <li><strong>20 min</strong> — Pick one project (Ch. 10, 11, or 12); paste the starter prompt in Lovable or Replit.</li>
+    <li><strong>5 min</strong> — Send the link to one friend or family member.</li>
+    <li><strong>5 min</strong> — Write one improvement prompt and apply it.</li>
+  </ol>
+
+  <div class="tip box">
+    <strong>You don't need to read every line of code</strong>
+    You do need to know what you want the app to do. Clear thinking → clear prompts → better apps.
+  </div>
+</section>
+
+<section class="page-break">
+  <h2>Getting set up — accounts you'll need</h2>
+  <p>Ask a parent or teacher if you're under 13 — some tools require adult consent. All below have free tiers sufficient for this guide.</p>
+
+  <h3>1. A chat assistant (pick one)</h3>
+  <table>
+    <tr><th>Tool</th><th>Sign up</th><th>Free tier?</th></tr>
+    <tr><td>ChatGPT</td><td>chat.openai.com</td><td>Yes — enough for learning</td></tr>
+    <tr><td>Google Gemini</td><td>gemini.google.com</td><td>Yes — works with Google account</td></tr>
+    <tr><td>Claude</td><td>claude.ai</td><td>Yes — limited daily use</td></tr>
+  </table>
+
+  <h3>2. An app builder (pick one for projects)</h3>
+  <table>
+    <tr><th>Tool</th><th>Best for</th><th>Tip</th></tr>
+    <tr><td>Lovable</td><td>Polished web apps quickly</td><td>Start from the revision planner prompt</td></tr>
+    <tr><td>Replit</td><td>Apps + light coding if you want to peek under the hood</td><td>Use "Agent" or app templates</td></tr>
+  </table>
+
+  <h3>3. Before you paste prompts</h3>
+  <ul>
+    <li>Use a nickname in demos, not your full address or school name.</li>
+    <li>Save your app link in the build log (previous section).</li>
+    <li>If a tool asks for payment, stop and ask an adult — this guide doesn't require paid upgrades.</li>
+  </ul>
+</section>
+
+<!-- 10 PROJECT 1 -->
+<section class="page-break">
+  <h2>10. Project 1 — Revision planner</h2>
+  <p><strong>Problem:</strong> Students often have multiple subjects and exam dates but no structured plan — so they revise randomly or panic near the exam.</p>
+  <p><strong>Solution:</strong> A simple web app: enter subjects, dates, and available hours → get a weekly timetable.</p>
+
+  <h3>Starter prompt (copy this)</h3>
+  <div class="prompt">Build a simple revision planner web app for beginners.
+The user enters: subjects, exam dates, difficulty per subject, and available study hours per day.
+The app generates a weekly revision timetable.
+Keep the interface clean, friendly and easy to use.
+Include a "Generate plan" button and a reset button.</div>
+
+  <h3>After the first version — improve</h3>
+  <ul>
+    <li>"Show the plan in a table with days of the week."</li>
+    <li>"Add a short motivational message at the end."</li>
+    <li>"Add example placeholder text in each field."</li>
+    <li>"Make it suitable for GCSE and A-Level students."</li>
+  </ul>
+
+  <div class="try box">
+    <strong>Version one rule</strong>
+    You're not building Google Calendar. You're building one useful thing that works. Ship v1, then improve.
+  </div>
+
+  <h3>Step-by-step in the workshop</h3>
+  <ol>
+    <li>Open Lovable or Replit and start a new app project.</li>
+    <li>Paste the starter prompt (above) and wait for the first build.</li>
+    <li>Click through every field — does the plan make sense?</li>
+    <li>Ask a friend: "Try this without me explaining."</li>
+    <li>Pick two improvements from the list below and prompt again.</li>
+  </ol>
+
+  <div class="mock-ui">
+    <div class="mock-titlebar">📅 Revision Planner — what you're aiming for</div>
+    <div class="mock-body">
+      <div class="mock-field">Subject: Maths · Exam: 15 June · Hours/day: 1.5</div>
+      <div class="mock-field">Subject: Biology · Exam: 22 June · Hours/day: 1</div>
+      <span class="mock-btn">Generate plan</span>
+      <p style="font-size:9pt;margin:0.8em 0 0;background:#fff;padding:0.5em;border-radius:6px;border:1px solid #e0e4f0">
+        <strong>Mon:</strong> Maths 45m · <strong>Tue:</strong> Biology 30m, Maths 30m · …
+      </p>
+    </div>
+  </div>
+
+  <h3>Reflection (write or discuss)</h3>
+  <ul>
+    <li>Who would use this app in real life?</li>
+    <li>What's one thing you'd change in version two?</li>
+    <li>Did the AI misunderstand anything? How did you fix it?</li>
+  </ul>
+</section>
+
+<!-- 11 PROJECT 2 -->
+<section>
+  <h2>11. Project 2 — Story generator</h2>
+  <p>This project shows AI isn't only for productivity — it's creative too. Same idea → prompt → app flow, different tone.</p>
+
+  <h3>Starter prompt</h3>
+  <div class="prompt">Build a simple story generator app.
+The user enters: main character, story theme, age group, and moral of the story.
+The app generates a short story in a friendly tone.
+Add options for funny, adventurous, or emotional styles.
+Keep the design simple and colourful.</div>
+
+  <h3>Teaching point</h3>
+  <p>A story for a 5-year-old reads differently from one for a teenager. A funny story differs from an emotional one. Always tell AI the <strong>audience</strong> and <strong>tone</strong> — in apps and in everyday writing.</p>
+
+  <h3>Improvement prompts</h3>
+  <ul>
+    <li>"Add a copy button for the story."</li>
+    <li>"Add 'Generate another story'."</li>
+    <li>"Make language simpler for young children."</li>
+    <li>"Show the moral in a separate box at the end."</li>
+  </ul>
+
+  <div class="mock-ui">
+    <div class="mock-titlebar">📖 Story Generator — example layout</div>
+    <div class="mock-body">
+      <div class="mock-field">Character: Luna the cat</div>
+      <div class="mock-field">Theme: Adventure · Age: 8 · Style: Funny</div>
+      <span class="mock-btn">Create story</span>
+      <p style="font-size:9pt;margin:0.8em 0 0;background:#fff;padding:0.6em;border-radius:6px;border:1px solid #e0e4f0;line-height:1.5">
+        Luna didn't mean to join the school talent show. But when the microphone squeaked…
+      </p>
+    </div>
+  </div>
+
+  <h3>Why this project matters</h3>
+  <p>Productivity apps feel "serious." Creative apps show that AI adapts <em>tone</em> — funny, gentle, dramatic. That skill transfers to emails, presentations, and social posts: always say who the audience is.</p>
+</section>
+
+<!-- 12 PROJECT 3 -->
+<section class="page-break">
+  <h2>12. Project 3 — Quiz app</h2>
+  <p>Here the app has <strong>logic</strong>: questions, answers, scoring, feedback. Good for learning how user flows work — not just single-screen generators.</p>
+
+  <h3>Flow</h3>
+  <div class="flow">
+    <div class="flow-step" style="font-size:8pt">Choose topic</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="font-size:8pt">Get questions</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="font-size:8pt">Answer</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="font-size:8pt">See score</div>
+  </div>
+
+  <h3>Starter prompt</h3>
+  <div class="prompt">Build a simple quiz app for beginners.
+The user enters a topic and chooses difficulty: easy, medium, or hard.
+The app generates 5 multiple-choice questions.
+After the user submits answers, show the score and explain correct answers in simple language.
+Keep the design clean and friendly.</div>
+
+  <h3>Improvement prompts</h3>
+  <ul>
+    <li>"Show one question at a time with a progress bar."</li>
+    <li>"Add a restart quiz button."</li>
+    <li>"Give encouraging feedback based on the score."</li>
+    <li>"Make it work well on mobile."</li>
+  </ul>
+
+  <div class="mock-ui">
+    <div class="mock-titlebar">❓ Quiz App — example screen</div>
+    <div class="mock-body">
+      <p style="font-size:9pt;margin:0 0 0.4em">Question 2 of 5 · Topic: Space</p>
+      <p style="font-size:10pt;font-weight:700;margin:0 0 0.5em">Which planet is known as the Red Planet?</p>
+      <div class="mock-field">A) Venus</div>
+      <div class="mock-field" style="border-color:#667eea">B) Mars ✓</div>
+      <div class="mock-field">C) Jupiter</div>
+      <span class="mock-btn">Next question</span>
+    </div>
+  </div>
+
+  <p>Apps aren't just static pages — they guide people through steps. Notice how this one has a clear path: choose → answer → score → learn from mistakes.</p>
+</section>
+
+<!-- 13 PUBLISH -->
+<section>
+  <h2>13. Share your app with the world</h2>
+  <p>Building is step one; sharing is step two. Before you send a link to anyone, run this checklist:</p>
+
+  <table>
+    <tr><th>Check</th><th>Why it matters</th></tr>
+    <tr><td>App loads without errors</td><td>First impression</td></tr>
+    <tr><td>Text is clear without you explaining</td><td>Real users won't have you beside them</td></tr>
+    <tr><td>Works on a phone</td><td>Most people test on mobile</td></tr>
+    <tr><td>No private data visible</td><td>Don't leak emails, passwords, etc.</td></tr>
+    <tr><td>Friend test</td><td>Watch where they get stuck — don't help too much</td></tr>
+  </table>
+
+  <p>Publishing isn't the end. It's when real learning starts. One confused tester is worth more than ten silent downloads.</p>
+
+  <h3>Publishing checklist (tick when done)</h3>
+  <table>
+    <tr><th>☐</th><th>Task</th></tr>
+    <tr><td>☐</td><td>Open the app on my phone</td></tr>
+    <tr><td>☐</td><td>Ask someone else to use it without help</td></tr>
+    <tr><td>☐</td><td>Fix the most confusing button or label</td></tr>
+    <tr><td>☐</td><td>Copy the share link and send to one friend</td></tr>
+    <tr><td>☐</td><td>Write one sentence: who this app helps</td></tr>
+  </table>
+</section>
+
+<section class="page-break">
+  <h2>Common mistakes (and how to fix them)</h2>
+  <table>
+    <tr><th>Mistake</th><th>Fix</th></tr>
+    <tr><td>Prompt too vague — "make an app"</td><td>Add user, features, and style in one paragraph</td></tr>
+    <tr><td>Building too many features at once</td><td>One screen, one job — add features in v2</td></tr>
+    <tr><td>Trusting facts without checking</td><td>Verify dates, numbers, and definitions elsewhere</td></tr>
+    <tr><td>Giving up after the first ugly version</td><td>Every app looks rough at first — iterate twice before judging</td></tr>
+    <tr><td>Pasting private information</td><td>Use fake names in demos; never share passwords</td></tr>
+    <tr><td>Not testing on mobile</td><td>Most people will open your link on a phone</td></tr>
+    <tr><td>Comparing to professional apps</td><td>Your v1 teaches <em>you</em> — that's the win</td></tr>
+  </table>
+
+  <h3>Before → after: real prompt upgrades</h3>
+  <p><strong>1. Homework help</strong></p>
+  <p><em>Before:</em> "Help with science."<br>
+  <em>After:</em> "Explain photosynthesis to a 13-year-old. Use a plant on a windowsill as the example. Max 150 words, then 3 quiz questions."</p>
+
+  <p><strong>2. App build</strong></p>
+  <p><em>Before:</em> "Make a game."<br>
+  <em>After:</em> "Build a times-table quiz for 9-year-olds. 10 questions, multiple choice, fun feedback when they're wrong. Bright colours."</p>
+
+  <p><strong>3. Writing</strong></p>
+  <p><em>Before:</em> "Write an email."<br>
+  <em>After:</em> "Draft a polite email to my teacher asking for a one-day extension. I've been ill. Keep it under 100 words."</p>
+
+  <p><strong>4. Revision</strong></p>
+  <p><em>Before:</em> "Help me revise."<br>
+  <em>After:</em> "I have GCSE Maths on 12 June and Biology on 19 June. I can study 90 minutes/day. Build a 2-week plan with lighter days on weekends."</p>
+</section>
+
+<section class="page-break">
+  <h2>My build log</h2>
+  <p>Keep track of what you build after the workshop. Even rough notes help you improve.</p>
+  <table>
+    <tr><th>Date</th><th>App name</th><th>Who it's for</th><th>What worked</th><th>Next improvement</th></tr>
+    <tr><td style="height:2em"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:2em"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:2em"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:2em"></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td style="height:2em"></td><td></td><td></td><td></td><td></td></tr>
+  </table>
+
+  <div class="worksheet" style="margin-top:1.5em">
+    <h3 style="margin-top:0">Ideas backlog</h3>
+    <p>Problems I notice in daily life → possible apps:</p>
+    <div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div>
+  </div>
+</section>
+
+<!-- 14 SAFETY -->
+<section class="page-break">
+  <h2>14. Use AI safely</h2>
+  <p>Three rules I give every group:</p>
+
+  <h3>1. Don't blindly trust AI</h3>
+  <p>It can be wrong while sounding confident (<strong>hallucination</strong>). Verify anything important — health, law, money, exams, public facts.</p>
+
+  <h3>2. Protect private information</h3>
+  <p>Don't paste passwords, bank details, medical records, or confidential school/work documents into random tools.</p>
+
+  <h3>3. AI assists — you think</h3>
+  <p>For students: use AI to explain, quiz, and check understanding — not to skip thinking. For everyone: AI gives speed; you give direction and responsibility.</p>
+
+  <div class="warn box">
+    <strong>For parents &amp; teachers</strong>
+    Talk about what kids paste into AI and whether school work is their own. The goal is learning with AI, not replacing learning.
+  </div>
+</section>
+
+<!-- 15 EVERYDAY -->
+<section class="page-break">
+  <h2>15. AI in everyday life</h2>
+  <p>Apps are one use. Here's where beginners can start tomorrow:</p>
+
+  <div class="grid2">
+    <div class="card"><h4>Learning</h4><p>"Explain compound interest like I'm 15." "Quiz me on World War II."</p></div>
+    <div class="card"><h4>Writing</h4><p>Draft emails, CVs, posts — then edit so it sounds like you.</p></div>
+    <div class="card"><h4>Productivity</h4><p>Weekly plans, study schedules, meeting notes.</p></div>
+    <div class="card"><h4>Creativity</h4><p>Stories, poster ideas, game concepts, brand names.</p></div>
+  </div>
+
+  <p>AI isn't one tool — it's a layer across many activities. People who learn to use it well move faster. That's what today's workshop starts.</p>
+
+  <h3>Starter projects if you can't pick an idea</h3>
+  <table>
+    <tr><th>App</th><th>Who</th><th>One-line pitch</th></tr>
+    <tr><td>Habit tracker</td><td>Anyone</td><td>Log one daily habit and see a streak</td></tr>
+    <tr><td>Flashcard quiz</td><td>Student</td><td>Enter a topic → 10 quick questions</td></tr>
+    <tr><td>Compliment generator</td><td>Friends</td><td>Pick a mood → get a kind message to send</td></tr>
+    <tr><td>Birthday countdown</td><td>Family</td><td>Enter a date → days left + message idea</td></tr>
+    <tr><td>Recipe picker</td><td>Home</td><td>Ingredients at home → suggest a simple meal</td></tr>
+  </table>
+</section>
+
+<!-- 16 MINDSET -->
+<section>
+  <h2>16. The builder mindset</h2>
+  <p>The biggest mistake I see: waiting until you "know enough" before building. You learn by building.</p>
+  <ul>
+    <li>Start small — one feature, one screen, one useful output.</li>
+    <li>Break it, fix it, show someone, get feedback.</li>
+    <li>Don't compare your first app to professional software — unfair and unnecessary.</li>
+    <li>One app you built beats ten tutorials you only watched.</li>
+  </ul>
+
+  <div class="flow">
+    <div class="flow-step" style="background:#10b981">Start small</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="background:#10b981">Prompt well</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="background:#10b981">Test honestly</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-step" style="background:#10b981">Improve</div>
+  </div>
+
+  <p>After your first app, the second is easier. Then the third. You move from "beginner" to "builder" by doing — not by collecting certificates.</p>
+</section>
+
+<!-- APPENDIX -->
+<section class="page-break">
+  <h2>Appendix A — 3-hour workshop timeline</h2>
+  <p>If you're joining the live <strong>AI for Beginners</strong> session, here's how we typically spend the time:</p>
+  <table>
+    <tr><th>Time</th><th>What we do</th></tr>
+    <tr><td>0:00 – 0:10</td><td>Welcome, mission, what you'll build today</td></tr>
+    <tr><td>0:10 – 0:30</td><td>What AI is, Generative AI, why it matters (Ch. 2–3)</td></tr>
+    <tr><td>0:30 – 0:50</td><td>Tools landscape: ChatGPT, Gemini, Lovable, Replit (Ch. 5)</td></tr>
+    <tr><td>0:50 – 1:10</td><td>Prompting: context, role, task, format (Ch. 6)</td></tr>
+    <tr><td>1:10 – 1:25</td><td>Idea → use case; pick your app (Ch. 7)</td></tr>
+    <tr><td>1:25 – 1:35</td><td><em>Short break</em></td></tr>
+    <tr><td>1:35 – 2:00</td><td><strong>Live Build 1:</strong> Revision planner (Ch. 10)</td></tr>
+    <tr><td>2:00 – 2:25</td><td><strong>Live Build 2:</strong> Story generator (Ch. 11)</td></tr>
+    <tr><td>2:25 – 2:50</td><td><strong>Live Build 3:</strong> Quiz app (Ch. 12)</td></tr>
+    <tr><td>2:50 – 3:00</td><td>Safety, showcase, what's next (Ch. 14–17)</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>Appendix B — Glossary</h2>
+  <table class="cheat">
+    <tr><td>AI</td><td>Software that performs tasks we associate with human intelligence.</td></tr>
+    <tr><td>Generative AI</td><td>AI that creates new content — text, images, code, etc.</td></tr>
+    <tr><td>Prompt</td><td>Your instruction to an AI tool — what you type in the chat or app builder.</td></tr>
+    <tr><td>LLM</td><td>Large Language Model — the engine behind tools like ChatGPT; trained on lots of text.</td></tr>
+    <tr><td>Hallucination</td><td>When AI states something false confidently. Always verify important facts.</td></tr>
+    <tr><td>Iteration</td><td>Improve by trying again — better prompt, test, fix, repeat.</td></tr>
+    <tr><td>Use case</td><td>A clear description of who uses something, why, and what success looks like.</td></tr>
+    <tr><td>Prototype</td><td>First working version — good enough to test, not necessarily perfect.</td></tr>
+    <tr><td>Vibe coding</td><td>Building software by describing what you want; AI generates much of the code.</td></tr>
+    <tr><td>App builder</td><td>Platform (e.g. Lovable, Replit) that turns prompts into working apps.</td></tr>
+  </table>
+</section>
+
+<section class="page-break">
+  <h2>Appendix C — Notes for parents &amp; teachers</h2>
+  <p>This guide supports a practical workshop for young people. A few things worth knowing:</p>
+  <ul>
+    <li><strong>No prior coding</strong> is required. We use AI-assisted tools; the learning goal is thinking clearly and using AI responsibly.</li>
+    <li><strong>Supervision:</strong> Primary-age children benefit from an adult nearby for sign-up and sharing links.</li>
+    <li><strong>Privacy:</strong> Remind learners not to paste personal details (full names, addresses, passwords) into AI tools.</li>
+    <li><strong>Schoolwork:</strong> AI can help explain and practise — not replace the student's own thinking. Check your school's policy.</li>
+    <li><strong>After the session:</strong> Ask "What did you build? Who is it for?" rather than "Was it perfect?" Simple apps are a success.</li>
+  </ul>
+  <p>Questions about the workshop or this guide: <strong>ai@chocolateminds.com</strong></p>
+</section>
+
+<section>
+  <h2>Appendix D — Showcase questions</h2>
+  <p>At the end of a session I ask each participant to share — even if the app is rough. Use these prompts:</p>
+  <ol>
+    <li>What did you build?</li>
+    <li>Who is it for?</li>
+    <li>What problem does it solve?</li>
+    <li>What worked well?</li>
+    <li>What would you improve in version two?</li>
+  </ol>
+  <p>Simple is good. Simple means clear. The goal is confidence: <em>"I can build something."</em></p>
+</section>
+
+<section class="page-break">
+  <h2>Quick reference — print this page</h2>
+  <div class="grid2">
+    <div class="card"><h4>The loop</h4><p>Prompt → Build → Test → Improve</p></div>
+    <div class="card"><h4>The path</h4><p>Idea → Use case → Prompt → App</p></div>
+    <div class="card"><h4>Good prompt</h4><p>Context + Role + Task + Format</p></div>
+    <div class="card"><h4>App anatomy</h4><p>Input → Process → Output</p></div>
+  </div>
+  <h3>Safety in one line</h3>
+  <p>Verify important facts · Protect private data · You stay in charge.</p>
+  <h3>When stuck</h3>
+  <ol>
+    <li>Make the prompt more specific (who, what, how).</li>
+    <li>Ask for one change at a time.</li>
+    <li>Test on your phone.</li>
+    <li>Email <strong>ai@chocolateminds.com</strong> if you're stuck after the workshop.</li>
+  </ol>
+  <h3>Tools mentioned in this guide</h3>
+  <p>ChatGPT · Claude · Google Gemini · Lovable · Replit — names and interfaces change; search for current versions when you build.</p>
+</section>
+
+<!-- 17 NEXT -->
+<section class="page-break">
+  <h2>17. What's next</h2>
+  <p>Today you went from <strong>idea → prompt → app</strong>. That's the beginning, not the finish.</p>
+  <p>Keep one small idea notebook. When something annoys you ("I always forget to…", "I wish there was an app that…"), that's a use case waiting to happen.</p>
+
+  <table>
+    <tr><th>Keep going with</th><th></th></tr>
+    <tr><td>Live workshop</td><td>AI for Beginners — build alongside others</td></tr>
+    <tr><td>More courses</td><td>madhusudhankonda.github.io/ai</td></tr>
+    <tr><td>Questions</td><td>ai@chocolateminds.com</td></tr>
+  </table>
+
+  <p>AI isn't only for experts or developers. It's becoming a general skill — like using the internet or a smartphone. The people who practise early will learn faster, build faster, and create more.</p>
+  <p>Don't wait for permission. Pick one small idea. Turn it into a prompt. Turn the prompt into an app. Then improve it.</p>
+  <p>Thank you for learning with ChocolateMinds. See you in the next session.</p>
+
+  <div class="footer-note">
+    © 2026 Madhusudhan Konda · ChocolateMinds · Personal/educational use. Content reflects live workshop material; AI tools and interfaces change frequently — verify current product docs when you build.<br>
+    Companion Guide v1.0 · June 2026 · ai@chocolateminds.com
+  </div>
+</section>
+
+</body>
+</html>

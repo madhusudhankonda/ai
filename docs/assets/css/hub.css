@@ -593,6 +593,64 @@ body {
 }
 
 /* Responsive */
+/* Companion guide banner */
+.resource-banner {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #fff;
+    padding: var(--spacing-lg) 0;
+}
+
+.resource-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.resource-banner-icon {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.resource-banner-text {
+    flex: 1;
+    min-width: 220px;
+}
+
+.resource-banner-text h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.35rem;
+    color: #fff;
+}
+
+.resource-banner-text p {
+    margin: 0;
+    opacity: 0.92;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+.resource-banner-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.btn-outline-light {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.7);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255,255,255,0.12);
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
