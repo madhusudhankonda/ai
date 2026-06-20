@@ -651,6 +651,11 @@ body {
     background: rgba(255,255,255,0.12);
 }
 
+.deck-tag.cohort-open {
+    background: rgba(16, 185, 129, 0.2);
+    color: #047857;
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;

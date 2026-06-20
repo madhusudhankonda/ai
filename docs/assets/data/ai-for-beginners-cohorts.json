@@ -1,0 +1,35 @@
+{
+  "courseId": "ai-for-beginners",
+  "scheduleNote": "New beginner cohorts run once a month, usually on a Sunday afternoon (GMT/BST).",
+  "defaultTime": "4:00 PM – 7:00 PM",
+  "cohorts": [
+    {
+      "id": "cohort-1",
+      "name": "Cohort 1",
+      "label": "Saturday, 20 June 2026",
+      "timeLabel": "9:00 AM – 12:00 PM",
+      "timezone": "GMT/BST",
+      "status": "closed",
+      "statusLabel": "Completed"
+    },
+    {
+      "id": "cohort-2",
+      "name": "Cohort 2",
+      "label": "Sunday, 19 July 2026",
+      "timeLabel": "4:00 PM – 7:00 PM",
+      "timezone": "GMT/BST",
+      "status": "open",
+      "statusLabel": "Registration open",
+      "isDefault": true
+    },
+    {
+      "id": "cohort-3",
+      "name": "Cohort 3",
+      "label": "Sunday, 16 August 2026",
+      "timeLabel": "4:00 PM – 7:00 PM",
+      "timezone": "GMT/BST",
+      "status": "announced",
+      "statusLabel": "Coming soon"
+    }
+  ]
+}
