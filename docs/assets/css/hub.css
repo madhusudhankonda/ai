@@ -656,6 +656,146 @@ body {
     color: #047857;
 }
 
+.deck-tag.pilot {
+    background: rgba(245, 158, 11, 0.15);
+    color: #b45309;
+}
+
+.deck-tag.experimental {
+    background: rgba(107, 114, 128, 0.15);
+    color: #4b5563;
+}
+
+/* Mission & learning pathway */
+.hero-mission {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: 0.65rem 1.25rem;
+    border-radius: 999px;
+    background: rgba(102, 126, 234, 0.1);
+    color: #4338ca;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.pathway-section {
+    padding: var(--spacing-lg) 0 0;
+    background: var(--white);
+}
+
+.pathway-steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-lg);
+}
+
+.pathway-step {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pathway-step span {
+    opacity: 0.55;
+    font-weight: 700;
+}
+
+.pathway-arrow {
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+/* Catalogue tracks */
+.catalogue-track {
+    margin-bottom: var(--spacing-xl);
+}
+
+.catalogue-track-header {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.catalogue-track-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #667eea;
+    margin-bottom: 0.35rem;
+}
+
+.catalogue-track-header h3 {
+    font-size: 1.65rem;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+}
+
+.catalogue-track-header p {
+    color: var(--text-secondary);
+    max-width: 720px;
+}
+
+.course-card.compact {
+    padding: var(--spacing-md);
+    border: 1px dashed var(--border-color);
+    background: var(--bg-light);
+}
+
+.course-card.compact.featured {
+    border-style: solid;
+    border-color: var(--border-color);
+    background: var(--bg-light);
+}
+
+.course-card.compact .course-icon {
+    font-size: 2.5rem;
+}
+
+.course-card.compact h3 {
+    font-size: 1.35rem;
+}
+
+.course-card.compact .course-price {
+    font-size: 2rem;
+}
+
+.course-card.experimental {
+    opacity: 0.92;
+    border: 1px solid var(--border-color);
+}
+
+.course-card.experimental.featured {
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.course-badge.pilot {
+    background: #f59e0b;
+    color: var(--white);
+}
+
+.course-badge.soon {
+    background: #764ba2;
+    color: var(--white);
+}
+
+.course-badge.experimental {
+    background: #6b7280;
+    color: var(--white);
+}
+
 @media (max-width: 768px) {
     .hero-title {
         font-size: 2.5rem;
