@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Practical AI Workshop for Developers, Architects &amp; Tech Leads | Madhusudhan Konda</title>
+    <meta name="description" content="A 2-hour live, hands-on AI workshop for developers, architects and tech leads. Sunday, 5 July 2026, 5-7pm BST. Normally £50, half-price launch offer £25.">
+    <link rel="stylesheet" href="../../assets/css/ideas-workshop.css">
+    <style>
+        :root {
+            --openclaw-blue: #185a9d;
+            --openclaw-dark-blue: #0f172a;
+            --openclaw-light-blue: #2563eb;
+            --openclaw-yellow: #facc15;
+        }
+
+        .hero::before {
+            content: '';
+        }
+
+        .hero-subtitle {
+            max-width: 920px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hands-on-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 2rem auto 0;
+            max-width: 980px;
+        }
+
+        .hands-on-item {
+            background: #ffffff;
+            border-left: 5px solid var(--openclaw-blue);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+            padding: 1.25rem;
+        }
+
+        .hands-on-item strong {
+            color: var(--openclaw-blue);
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .agenda-list {
+            display: grid;
+            gap: 1rem;
+            max-width: 980px;
+            margin: 2rem auto 0;
+        }
+
+        .agenda-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.85rem;
+            box-shadow: 0 3px 16px rgba(15, 23, 42, 0.06);
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1.25rem;
+            padding: 1.25rem;
+        }
+
+        .agenda-time {
+            color: var(--openclaw-blue);
+            font-weight: 800;
+        }
+
+        .agenda-item h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .agenda-item p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .lab-note {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 1rem;
+            color: #1e3a8a;
+            font-weight: 600;
+            margin: 2rem auto 0;
+            max-width: 900px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            .agenda-item {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">← Back to Courses</a>
+            <a href="#register" class="nav-cta">Reserve £25</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Live Online • Sunday, 5 July 2026 • 5-7pm BST • <span class="price-was">£50</span> <span class="price-now">£25</span> <span class="early-bird-badge">Half Price</span></div>
+            <h1 class="hero-title">
+                The Practical AI Workshop<br>
+                <span class="highlight">for Developers, Architects &amp; Tech Leads</span>
+            </h1>
+            <p class="hero-subtitle">A fast, hands-on 2-hour session for technical professionals who already know the basics of ChatGPT and want practical AI workflows for architecture, coding, testing, agents and delivery.</p>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="icon">⏱️</span>
+                    <div>
+                        <strong>2-Hour Live Workshop</strong>
+                        <p>Sunday, 5 July 2026 · 5-7pm BST</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🧪</span>
+                    <div>
+                        <strong>Live Hands-On Demos</strong>
+                        <p>Architecture, code, tests, agents and review loops</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">💷</span>
+                    <div>
+                        <strong>Half-Price Launch Offer</strong>
+                        <p>Normally £50 · Reserve today for £25</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#register" class="btn btn-primary btn-large">Reserve Your Spot • £25 →</a>
+            <p class="hero-note">Built for people who ship software. Minimal slides, maximum live workflow.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">This Is Not an AI Basics Session</h2>
+            <p class="section-subtitle">We assume you have seen ChatGPT, Claude or Copilot. This workshop focuses on how technical teams can use AI inside real engineering work.</p>
+            <div class="hands-on-strip">
+                <div class="hands-on-item">
+                    <strong>Watch AI shape a feature</strong>
+                    <p>From vague requirement to acceptance criteria, architecture notes and implementation plan.</p>
+                </div>
+                <div class="hands-on-item">
+                    <strong>See engineering judgement in action</strong>
+                    <p>How to challenge AI output, spot weak assumptions and keep control of quality.</p>
+                </div>
+                <div class="hands-on-item">
+                    <strong>Leave with reusable workflows</strong>
+                    <p>Prompt patterns and review loops you can use immediately with your team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title">2-Hour Hands-On Agenda</h2>
+            <p class="section-subtitle">The deck supports the session; it does not drive it. The centre of the workshop is live, practical demonstration.</p>
+
+            <div class="agenda-list">
+                <div class="agenda-item">
+                    <div class="agenda-time">0:00-0:10</div>
+                    <div>
+                        <h3>From Chatbots to Engineering Workflows</h3>
+                        <p>Where AI fits across the SDLC: analyst, architect, pair programmer, reviewer and automation layer.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">0:10-0:25</div>
+                    <div>
+                        <h3>Prompting Patterns for Technical Work</h3>
+                        <p>Context, constraints, examples, acceptance criteria and reusable workflow prompts for software teams.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">0:25-0:45</div>
+                    <div>
+                        <h3>AI-Assisted Architecture and Design</h3>
+                        <p>Live workflow: generate options, compare trade-offs, produce ADRs, find missing NFRs and challenge assumptions.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">0:45-1:10</div>
+                    <div>
+                        <h3>Coding, Refactoring and Testing With AI</h3>
+                        <p>Live workflow: turn a feature into code, generate tests, debug with logs, refactor safely and review AI output.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:10-1:25</div>
+                    <div>
+                        <h3>Vibe Coding With Professional Guardrails</h3>
+                        <p>Prototype quickly without letting the codebase drift: steering prompts, tests, structure, review and refactoring.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:25-1:45</div>
+                    <div>
+                        <h3>AI Agents for Software Teams</h3>
+                        <p>What changes when AI can use tools, inspect files, edit code, browse, run commands and complete multi-step tasks.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:45-1:55</div>
+                    <div>
+                        <h3>Security, Privacy and Responsible Use</h3>
+                        <p>Confidential code, hallucinations, insecure suggestions, prompt injection, IP concerns and team guardrails.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:55-2:00</div>
+                    <div>
+                        <h3>Q&amp;A and Next Steps</h3>
+                        <p>Tool recommendations, team adoption patterns and how to continue beyond the workshop.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-note">Main live demo: take one realistic feature from requirement → architecture → implementation → tests → review → release notes.</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Who Should Attend</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <strong>Software Developers</strong>
+                    <p>Use AI beyond autocomplete for debugging, tests, refactoring and review.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Solution Architects</strong>
+                    <p>Explore options, trade-offs, NFRs, threat models and ADRs faster.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Tech Leads</strong>
+                    <p>Introduce AI workflows without sacrificing code quality, security or team discipline.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Delivery and QA Leads</strong>
+                    <p>Generate acceptance criteria, test ideas, release notes and incident summaries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="section bg-primary">
+        <div class="container text-center">
+            <h2 class="section-title">Reserve Your Spot</h2>
+            <p class="section-subtitle">Sunday, 5 July 2026 · 5-7pm BST · Live online · Normally <span class="price-was">£50</span> now <span class="price-now">£25</span> half-price launch offer</p>
+
+            <div class="registration-box">
+                <div class="registration-content">
+                    <h3>What Happens Next</h3>
+                    <ol class="steps-list">
+                        <li>Register and pay the £25 half-price workshop fee.</li>
+                        <li>Receive your confirmation email and Zoom joining details.</li>
+                        <li>Join the live session and follow along with the demos.</li>
+                        <li>Leave with practical AI workflows for architecture, coding, testing, agents and technical delivery.</li>
+                    </ol>
+
+                    <a href="checkout.html" class="btn btn-secondary btn-large">Register Now • £25 →</a>
+
+                    <p class="form-note">
+                        Questions? Email us at <a href="mailto:ai@chocolateminds.com">ai@chocolateminds.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Your Instructor</h2>
+            <div class="instructor-card">
+                <div class="instructor-content">
+                    <h3>Madhusudhan Konda</h3>
+                    <p class="instructor-title">AI Lead &amp; Educator | London</p>
+                    <p>Madhusudhan helps technical teams use AI as a practical engineering capability, not as a gimmick.</p>
+                    <p>With 20+ years of software engineering and architecture experience, he teaches developers, architects and tech leads how to move faster while keeping judgement, quality and security in the loop.</p>
+                    <div class="instructor-links">
+                        <a href="https://linkedin.com/in/madhusudhankonda" target="_blank">LinkedIn</a>
+                        <a href="https://chocolateminds.com/ai" target="_blank">Website</a>
+                        <a href="mailto:ai@chocolateminds.com">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Madhusudhan Konda. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="https://chocolateminds.com/ai">Website</a>
+                <a href="https://linkedin.com/in/madhusudhankonda">LinkedIn</a>
+                <a href="mailto:ai@chocolateminds.com">ai@chocolateminds.com</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
