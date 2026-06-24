@@ -37,6 +37,10 @@
             animation: spin 0.8s linear infinite;
         }
 
+        .spinner.is-hidden {
+            display: none;
+        }
+
         @keyframes spin {
             to {
                 transform: rotate(360deg);
@@ -57,13 +61,18 @@
             color: #fff;
             font-weight: 700;
         }
+
+        .note {
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
     <div class="box">
-        <div class="spinner"></div>
+        <div class="spinner" id="spinner"></div>
         <h1>Taking you to secure checkout…</h1>
-        <p>You're being redirected to Stripe for <strong>The Practical AI Workshop</strong>. Use code <strong>CODE25</strong> before 1 July 2026 to pay £25.</p>
+        <p>You're being redirected to Stripe for <strong>The Practical AI Workshop</strong>.</p>
+        <p class="note">If you have a discount code, apply it in Stripe Checkout when prompted.</p>
         <p id="checkout-error" style="display: none;">Stripe Checkout did not open automatically. Please try again.</p>
         <p><a href="#" id="checkout-link">Continue to secure checkout</a></p>
     </div>
@@ -72,7 +81,6 @@
         const checkoutOptions = {
             lineItems: [{ price: 'price_1TlusfPW9VOM7eVC3EVTt36o', quantity: 1 }],
             mode: 'payment',
-            allowPromotionCodes: true,
             successUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/success.html',
             cancelUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/index.html#register',
             clientReferenceId: 'practical-ai-workshop-2026-07-05'
@@ -83,12 +91,22 @@
                 event.preventDefault();
             }
 
-            const result = await stripe.redirectToCheckout(checkoutOptions);
+            try {
+                const result = await stripe.redirectToCheckout(checkoutOptions);
 
-            if (result.error) {
+                if (result.error) {
+                    const error = document.getElementById('checkout-error');
+                    const spinner = document.getElementById('spinner');
+                    spinner.classList.add('is-hidden');
+                    error.style.display = 'block';
+                    error.textContent = result.error.message || 'Stripe Checkout did not open automatically. Please try again.';
+                }
+            } catch (checkoutError) {
                 const error = document.getElementById('checkout-error');
+                const spinner = document.getElementById('spinner');
+                spinner.classList.add('is-hidden');
                 error.style.display = 'block';
-                error.textContent = result.error.message || 'Stripe Checkout did not open automatically. Please try again.';
+                error.textContent = checkoutError.message || 'Stripe Checkout did not open automatically. Please try again.';
             }
         }
 
