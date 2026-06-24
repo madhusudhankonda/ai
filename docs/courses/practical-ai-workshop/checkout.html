@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to secure checkout… | Practical AI Workshop</title>
     <meta name="robots" content="noindex">
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Conversion tracking: this page view = a 'Register' click -->
+    <meta http-equiv="refresh" content="2;url=https://buy.stripe.com/3cIbJ3ddwbok7VO5Dl7IY04">
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
     <!-- End Cloudflare Web Analytics -->
@@ -37,10 +38,6 @@
             animation: spin 0.8s linear infinite;
         }
 
-        .spinner.is-hidden {
-            display: none;
-        }
-
         @keyframes spin {
             to {
                 transform: rotate(360deg);
@@ -69,49 +66,16 @@
 </head>
 <body>
     <div class="box">
-        <div class="spinner" id="spinner"></div>
+        <div class="spinner"></div>
         <h1>Taking you to secure checkout…</h1>
-        <p>You're being redirected to Stripe for <strong>The Practical AI Workshop</strong>.</p>
-        <p class="note">If you have a discount code, apply it in Stripe Checkout when prompted.</p>
-        <p id="checkout-error" style="display: none;">Stripe Checkout did not open automatically. Please try again.</p>
-        <p><a href="#" id="checkout-link">Continue to secure checkout</a></p>
+        <p>You're being redirected to Stripe for <strong>The Practical AI Workshop</strong> (£50).</p>
+        <p class="note">Use promo code <strong>CODE50</strong> at checkout before 1 July 2026 to pay £25.</p>
+        <p>If nothing happens, <a href="https://buy.stripe.com/3cIbJ3ddwbok7VO5Dl7IY04">click here to continue</a>.</p>
     </div>
     <script>
-        const stripe = Stripe('pk_live_51Th7ftPW9VOM7eVCZkbH9QcMTLGeU1vnWsaFRPIez6UtGPSNciiwtDYrRbePai6eghOS0ZjtJC3PVTzop4Br5OhM00yIo3V6YN');
-        const checkoutOptions = {
-            lineItems: [{ price: 'price_1TlusfPW9VOM7eVC3EVTt36o', quantity: 1 }],
-            mode: 'payment',
-            successUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/success.html',
-            cancelUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/index.html#register',
-            clientReferenceId: 'practical-ai-workshop-2026-07-05'
-        };
-
-        async function openCheckout(event) {
-            if (event) {
-                event.preventDefault();
-            }
-
-            try {
-                const result = await stripe.redirectToCheckout(checkoutOptions);
-
-                if (result.error) {
-                    const error = document.getElementById('checkout-error');
-                    const spinner = document.getElementById('spinner');
-                    spinner.classList.add('is-hidden');
-                    error.style.display = 'block';
-                    error.textContent = result.error.message || 'Stripe Checkout did not open automatically. Please try again.';
-                }
-            } catch (checkoutError) {
-                const error = document.getElementById('checkout-error');
-                const spinner = document.getElementById('spinner');
-                spinner.classList.add('is-hidden');
-                error.style.display = 'block';
-                error.textContent = checkoutError.message || 'Stripe Checkout did not open automatically. Please try again.';
-            }
-        }
-
-        document.getElementById('checkout-link').addEventListener('click', openCheckout);
-        setTimeout(openCheckout, 600);
+        setTimeout(function () {
+            window.location.replace('https://buy.stripe.com/3cIbJ3ddwbok7VO5Dl7IY04');
+        }, 900);
     </script>
 </body>
 </html>
