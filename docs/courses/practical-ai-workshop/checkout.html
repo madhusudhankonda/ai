@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to secure checkout… | Practical AI Workshop</title>
     <meta name="robots" content="noindex">
-    <meta http-equiv="refresh" content="2;url=https://buy.stripe.com/5kQaEZ1uO640a3WghZ7IY02">
+    <script src="https://js.stripe.com/v3/"></script>
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
     <!-- End Cloudflare Web Analytics -->
@@ -63,13 +63,37 @@
     <div class="box">
         <div class="spinner"></div>
         <h1>Taking you to secure checkout…</h1>
-        <p>You're being redirected to Stripe for the £50 workshop ticket. Use code <strong>CODE25</strong> before 1 July 2026 to pay £25.<br>
-        If nothing happens, <a href="https://buy.stripe.com/5kQaEZ1uO640a3WghZ7IY02">click here to continue</a>.</p>
+        <p>You're being redirected to Stripe for <strong>The Practical AI Workshop</strong>. Use code <strong>CODE25</strong> before 1 July 2026 to pay £25.</p>
+        <p id="checkout-error" style="display: none;">Stripe Checkout did not open automatically. Please try again.</p>
+        <p><a href="#" id="checkout-link">Continue to secure checkout</a></p>
     </div>
     <script>
-        setTimeout(function () {
-            window.location.replace('https://buy.stripe.com/5kQaEZ1uO640a3WghZ7IY02');
-        }, 900);
+        const stripe = Stripe('pk_live_51Th7ftPW9VOM7eVCZkbH9QcMTLGeU1vnWsaFRPIez6UtGPSNciiwtDYrRbePai6eghOS0ZjtJC3PVTzop4Br5OhM00yIo3V6YN');
+        const checkoutOptions = {
+            lineItems: [{ price: 'price_1TlusfPW9VOM7eVC3EVTt36o', quantity: 1 }],
+            mode: 'payment',
+            allowPromotionCodes: true,
+            successUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/success.html',
+            cancelUrl: 'https://madhusudhankonda.github.io/ai/courses/practical-ai-workshop/index.html#register',
+            clientReferenceId: 'practical-ai-workshop-2026-07-05'
+        };
+
+        async function openCheckout(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            const result = await stripe.redirectToCheckout(checkoutOptions);
+
+            if (result.error) {
+                const error = document.getElementById('checkout-error');
+                error.style.display = 'block';
+                error.textContent = result.error.message || 'Stripe Checkout did not open automatically. Please try again.';
+            }
+        }
+
+        document.getElementById('checkout-link').addEventListener('click', openCheckout);
+        setTimeout(openCheckout, 600);
     </script>
 </body>
 </html>
