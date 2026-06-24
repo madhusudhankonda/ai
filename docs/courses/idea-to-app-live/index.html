@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Idea to App to Live (Part 2) | Madhusudhan Konda</title>
+    <meta name="description" content="A 2-hour live workshop for curious non-tech beginners. Part 2 of the From Idea to App series — build with AI, publish online and leave with a live link you can share. £35 · Part 1 alumni pay £25 with code PART1.">
+    <link rel="stylesheet" href="../../assets/css/ideas-workshop.css">
+    <style>
+        :root {
+            --series-teal: #0d9488;
+            --series-dark: #134e4a;
+            --series-light: #14b8a6;
+        }
+
+        .hero::before { content: ''; }
+
+        .series-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+            padding: 0.35rem 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .hands-on-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 2rem auto 0;
+            max-width: 980px;
+        }
+
+        .hands-on-item {
+            background: #ffffff;
+            border-left: 5px solid var(--series-teal);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+            padding: 1.25rem;
+        }
+
+        .hands-on-item strong {
+            color: var(--series-teal);
+            display: block;
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .agenda-list {
+            display: grid;
+            gap: 1rem;
+            max-width: 980px;
+            margin: 2rem auto 0;
+        }
+
+        .agenda-item {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.85rem;
+            box-shadow: 0 3px 16px rgba(15, 23, 42, 0.06);
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 1.25rem;
+            padding: 1.25rem;
+        }
+
+        .agenda-time {
+            color: var(--series-teal);
+            font-weight: 800;
+        }
+
+        .agenda-item h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .agenda-item p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .lab-note {
+            background: #f0fdfa;
+            border: 1px solid #99f6e4;
+            border-radius: 1rem;
+            color: #115e59;
+            font-weight: 600;
+            margin: 2rem auto 0;
+            max-width: 900px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .part1-link {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+            margin: 2rem auto 0;
+            max-width: 720px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            .agenda-item { grid-template-columns: 1fr; }
+        }
+    </style>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">← Back to Courses</a>
+            <a href="#register" class="nav-cta">Reserve · £35</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="series-badge">From Idea to App · Part 2 of 2</div>
+            <div class="hero-badge">Live Online • Sunday, 26 July 2026 • 2-4pm BST • £35 • Part 1 alumni: code <span class="price-now">PART1</span> <span class="early-bird-badge">Pay £25</span></div>
+            <h1 class="hero-title">
+                From Idea to App to Live<br>
+                <span class="highlight">Build, Publish &amp; Share — No Tech Background Needed</span>
+            </h1>
+            <p class="hero-subtitle">You’ve seen what AI can do. Now build something real in a guided 2-hour session — understand the journey from idea to live app in plain English, and leave with a link you can share.</p>
+
+            <div class="event-details">
+                <div class="detail-item">
+                    <span class="icon">⏱️</span>
+                    <div>
+                        <strong>2-Hour Live Workshop</strong>
+                        <p>Sunday, 26 July 2026 · 2-4pm BST</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🌐</span>
+                    <div>
+                        <strong>Publish for Real</strong>
+                        <p>Leave with a live app link — not just a prototype on your screen</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <span class="icon">🎓</span>
+                    <div>
+                        <strong>Part 1 Alumni Discount</strong>
+                        <p>Attended Part 1? Use code PART1 at checkout to pay £25</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#register" class="btn btn-primary btn-large">Reserve Your Spot • £35 →</a>
+            <p class="hero-note">Best after Part 1 · Attended Part 1? Use code PART1 at checkout to pay £25 · No coding or GitHub experience required</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">This Is the Next Step After Part 1</h2>
+            <p class="section-subtitle">Part 1 introduced AI and got you building. Part 2 goes deeper — one app, one workflow, one live link at the end.</p>
+            <div class="hands-on-strip">
+                <div class="hands-on-item">
+                    <strong>The app journey, simply</strong>
+                    <p>Idea → Plan → Build → Try it → Publish → Share — the software journey without jargon.</p>
+                </div>
+                <div class="hands-on-item">
+                    <strong>Build with AI beside you</strong>
+                    <p>Use an AI builder workspace to turn your idea into a working app — step by step, live.</p>
+                </div>
+                <div class="hands-on-item">
+                    <strong>Go live</strong>
+                    <p>Publish your app online and open the link on your phone. Optional: see how a custom domain fits in.</p>
+                </div>
+            </div>
+            <div class="part1-link">
+                <p><strong>Haven’t done Part 1 yet?</strong> Start with <a href="../ai-for-beginners/index.html">From Idea to App (Part 1)</a> — then come back here.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="curriculum" class="section bg-gradient">
+        <div class="container">
+            <h2 class="section-title">2-Hour Hands-On Agenda</h2>
+            <p class="section-subtitle">Minimal slides. Maximum building. Everyone follows the same example, then customises.</p>
+
+            <div class="agenda-list">
+                <div class="agenda-item">
+                    <div class="agenda-time">0:00-0:15</div>
+                    <div>
+                        <h3>Welcome &amp; The App Journey</h3>
+                        <p>Quick recap from Part 1. Map the path from idea to live app — what happens at each stage and why it matters.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">0:15-0:45</div>
+                    <div>
+                        <h3>Live Build: Idea to Working App</h3>
+                        <p>Follow along as we turn a simple idea into a working app using AI — prompts, tweaks and fixes in plain English.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">0:45-1:05</div>
+                    <div>
+                        <h3>Make It Yours</h3>
+                        <p>Change the text, colours and layout. Add a button or simple form. Make it feel like your app, not a demo.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:05-1:25</div>
+                    <div>
+                        <h3>Publish &amp; Share</h3>
+                        <p>Put your app online. Get a live URL. Open it on your phone and send it to a friend.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:25-1:45</div>
+                    <div>
+                        <h3>Domains &amp; What Happens Next</h3>
+                        <p>See how a custom domain connects (demo). Hosting, updates and when to ask for help — without the tech overwhelm.</p>
+                    </div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">1:45-2:00</div>
+                    <div>
+                        <h3>Q&amp;A &amp; Your Next Step</h3>
+                        <p>Where to go from here — more building, professionals track, or developer workshops if you catch the bug.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lab-note">Main outcome: everyone leaves with a live app link they can share — and a clear mental model of how software gets made.</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Who Should Attend</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <strong>Part 1 Graduates</strong>
+                    <p>You built in Part 1 and want to go from prototype to something live and shareable.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Curious Non-Techies</strong>
+                    <p>You’re not a developer. You don’t know GitHub. You just want to build and publish with guidance.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Parents &amp; Professionals</strong>
+                    <p>You saw what AI can do and want a practical next step — not a coding bootcamp.</p>
+                </div>
+                <div class="audience-card">
+                    <strong>Side-Project Builders</strong>
+                    <p>You have an idea — a page, a service, an event — and want to ship a first version this session.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="section bg-primary">
+        <div class="container text-center">
+            <h2 class="section-title">Reserve Your Spot</h2>
+            <p class="section-subtitle">Sunday, 26 July 2026 · 2-4pm BST · Live online · £35 · Part 1 alumni use code <span class="price-now">PART1</span> to pay £25</p>
+
+            <div class="registration-box">
+                <div class="registration-content">
+                    <h3>What Happens Next</h3>
+                    <ol class="steps-list">
+                        <li>Register for the £35 workshop ticket.</li>
+                        <li>Attended Part 1? Use promo code <strong>PART1</strong> at checkout to reduce the price to £25.</li>
+                        <li>Receive your confirmation email and Zoom joining details.</li>
+                        <li>Join the live session and build along — no installs or GitHub required beforehand.</li>
+                        <li>Leave with a live app link and a plain-English understanding of the build-to-publish journey.</li>
+                    </ol>
+
+                    <a href="checkout.html" class="btn btn-secondary btn-large">Register Now • £35 →</a>
+
+                    <p class="form-note">
+                        Questions? Email us at <a href="mailto:ai@chocolateminds.com">ai@chocolateminds.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Your Instructor</h2>
+            <div class="instructor-card">
+                <div class="instructor-content">
+                    <h3>Madhusudhan Konda</h3>
+                    <p class="instructor-title">AI Trainer &amp; Product Engineer | London</p>
+                    <p>Madhusudhan helps curious non-tech learners use AI to build real things — without drowning them in developer jargon.</p>
+                    <p>With 20+ years of software experience, he explains the journey from idea to live app in language anyone can follow.</p>
+                    <div class="instructor-links">
+                        <a href="https://linkedin.com/in/madhusudhankonda" target="_blank">LinkedIn</a>
+                        <a href="https://chocolateminds.com/ai" target="_blank">Website</a>
+                        <a href="mailto:ai@chocolateminds.com">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Madhusudhan Konda. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../index.html">Home</a>
+                <a href="../ai-for-beginners/index.html">Part 1</a>
+                <a href="https://chocolateminds.com/ai">Website</a>
+                <a href="mailto:ai@chocolateminds.com">ai@chocolateminds.com</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
