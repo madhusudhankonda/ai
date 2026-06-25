@@ -1,0 +1,3 @@
+display_name: Stripe
+short_description: Create Stripe checkout flows, promo codes, Payment Links, and course payment integrations.
+default_prompt: Create or update a Stripe checkout flow for this course, including products, prices, promo codes, and the site checkout redirect.
