@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From Idea to App to Live (Part 2) | Madhusudhan Konda</title>
-    <meta name="description" content="A 2-hour live workshop for curious non-tech beginners. Part 2 of the From Idea to App series — build with AI, publish online and leave with a live link you can share. £35 · Part 1 alumni pay £25 with code PART1.">
+    <meta name="description" content="A 2-hour live workshop for curious non-tech beginners. Part 2 of the From Idea to App series — build with AI, publish online and leave with a live link you can share. £25.">
     <link rel="stylesheet" href="../../assets/css/ideas-workshop.css">
     <style>
         :root {
@@ -110,6 +110,82 @@
         @media (max-width: 720px) {
             .agenda-item { grid-template-columns: 1fr; }
         }
+
+        .sessions-table {
+            width: 100%;
+            max-width: 820px;
+            margin: 2rem auto 0;
+            border-collapse: separate;
+            border-spacing: 0 0.6rem;
+        }
+
+        .sessions-table th {
+            color: var(--series-teal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-align: left;
+            text-transform: uppercase;
+            padding: 0 1rem 0.25rem;
+        }
+
+        .sessions-table td {
+            background: #ffffff;
+            padding: 1rem 1.1rem;
+            vertical-align: middle;
+        }
+
+        .sessions-table td:first-child { border-radius: 0.75rem 0 0 0.75rem; }
+        .sessions-table td:last-child  { border-radius: 0 0.75rem 0.75rem 0; }
+
+        .sessions-table tr td { box-shadow: 0 3px 14px rgba(15,23,42,0.07); }
+
+        .session-part {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .session-part.part2 {
+            background: #ccfbf1;
+            color: #0f766e;
+        }
+
+        .session-part.part1 {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .session-price {
+            font-weight: 800;
+            color: var(--series-teal);
+            font-size: 1.1rem;
+        }
+
+        .session-link {
+            display: inline-block;
+            background: var(--series-teal);
+            color: #fff;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            text-decoration: none;
+        }
+
+        .session-link:hover { background: var(--series-dark); }
+
+        .session-link.outline {
+            background: transparent;
+            border: 2px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .session-link.outline:hover { background: #eff6ff; }
     </style>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
 </head>
@@ -117,14 +193,14 @@
     <nav class="navbar">
         <div class="container">
             <a href="../../index.html" class="logo">← Back to Courses</a>
-            <a href="#register" class="nav-cta">Reserve · £35</a>
+            <a href="#register" class="nav-cta">Reserve · £25</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
             <div class="series-badge">From Idea to App · Part 2 of 2</div>
-            <div class="hero-badge">Live Online • Sunday, 26 July 2026 • 2-4pm BST • £35 • Part 1 alumni: code <span class="price-now">PART1</span> <span class="early-bird-badge">Pay £25</span></div>
+            <div class="hero-badge">Live Online • Next: Sunday, 5 July 2026 • 5-7pm BST • £25</div>
             <h1 class="hero-title">
                 From Idea to App to Live<br>
                 <span class="highlight">Build, Publish &amp; Share — No Tech Background Needed</span>
@@ -136,7 +212,7 @@
                     <span class="icon">⏱️</span>
                     <div>
                         <strong>2-Hour Live Workshop</strong>
-                        <p>Sunday, 26 July 2026 · 2-4pm BST</p>
+                        <p>Next session: Sunday, 5 July 2026 · 5-7pm BST</p>
                     </div>
                 </div>
                 <div class="detail-item">
@@ -147,20 +223,61 @@
                     </div>
                 </div>
                 <div class="detail-item">
-                    <span class="icon">🎓</span>
+                    <span class="icon">💷</span>
                     <div>
-                        <strong>Part 1 Alumni Discount</strong>
-                        <p>Attended Part 1? Use code PART1 at checkout to pay £25</p>
+                        <strong>£25 per session</strong>
+                        <p>Multiple dates — pick the one that suits you</p>
                     </div>
                 </div>
             </div>
 
-            <a href="#register" class="btn btn-primary btn-large">Reserve Your Spot • £35 →</a>
-            <p class="hero-note">Best after Part 1 · Attended Part 1? Use code PART1 at checkout to pay £25 · No coding or GitHub experience required</p>
+            <a href="#register" class="btn btn-primary btn-large">Reserve Your Spot • £25 →</a>
+            <p class="hero-note">Best after Part 1 · Multiple upcoming dates · No coding or GitHub experience required</p>
         </div>
     </section>
 
     <section class="section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Sessions</h2>
+            <p class="section-subtitle">Multiple dates — pick the one that works for you. Part 1 on 19 July is a great refresher before Part 2 on 26 July.</p>
+            <table class="sessions-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Session</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sunday, 5 July 2026</strong></td>
+                        <td>5–7pm BST</td>
+                        <td><span class="session-part part2">Part 2</span></td>
+                        <td><span class="session-price">£25</span></td>
+                        <td><a href="checkout.html" class="session-link">Book →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunday, 19 July 2026</strong></td>
+                        <td>TBC</td>
+                        <td><span class="session-part part1">Part 1</span></td>
+                        <td><span class="session-price">£25</span></td>
+                        <td><a href="../ai-for-beginners/index.html" class="session-link outline">Details →</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunday, 26 July 2026</strong></td>
+                        <td>2–4pm BST</td>
+                        <td><span class="session-part part2">Part 2</span></td>
+                        <td><span class="session-price">£25</span></td>
+                        <td><a href="checkout.html" class="session-link">Book →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section bg-gradient">
         <div class="container">
             <h2 class="section-title">This Is the Next Step After Part 1</h2>
             <p class="section-subtitle">Part 1 introduced AI and got you building. Part 2 goes deeper — one app, one workflow, one live link at the end.</p>
@@ -265,20 +382,19 @@
     <section id="register" class="section bg-primary">
         <div class="container text-center">
             <h2 class="section-title">Reserve Your Spot</h2>
-            <p class="section-subtitle">Sunday, 26 July 2026 · 2-4pm BST · Live online · £35 · Part 1 alumni use code <span class="price-now">PART1</span> to pay £25</p>
+            <p class="section-subtitle">Live online · £25 per session · Multiple upcoming dates — see the sessions table above</p>
 
             <div class="registration-box">
                 <div class="registration-content">
                     <h3>What Happens Next</h3>
                     <ol class="steps-list">
-                        <li>Register for the £35 workshop ticket.</li>
-                        <li>Attended Part 1? Use promo code <strong>PART1</strong> at checkout to reduce the price to £25.</li>
+                        <li>Register for the £25 workshop ticket (choose your preferred date above).</li>
                         <li>Receive your confirmation email and Zoom joining details.</li>
                         <li>Join the live session and build along — no installs or GitHub required beforehand.</li>
                         <li>Leave with a live app link and a plain-English understanding of the build-to-publish journey.</li>
                     </ol>
 
-                    <a href="checkout.html" class="btn btn-secondary btn-large">Register Now • £35 →</a>
+                    <a href="checkout.html" class="btn btn-secondary btn-large">Register Now • £25 →</a>
 
                     <p class="form-note">
                         Questions? Email us at <a href="mailto:ai@chocolateminds.com">ai@chocolateminds.com</a>
