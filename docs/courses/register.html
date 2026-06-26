@@ -506,6 +506,11 @@
                     document.getElementById('form-card').style.display = 'none';
                     document.getElementById('success-card').style.display = 'block';
                     document.getElementById('next-step-section').style.display = 'block';
+                    // Update hero to reflect success state
+                    document.getElementById('hero-badge').textContent = 'Registration confirmed';
+                    document.querySelector('.hero-title').textContent = "You're all set!";
+                    document.getElementById('hero-subtitle').textContent =
+                        "Check your inbox — we'll send your joining link shortly.";
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                     throw new Error('Brevo error ' + contactRes.status);
