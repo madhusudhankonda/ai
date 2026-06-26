@@ -163,6 +163,88 @@
         }
 
         .back-link:hover { opacity: 0.75; }
+
+        .next-step-section {
+            display: none;
+            max-width: 560px;
+            margin: 2rem auto 0;
+        }
+
+        .next-step-label {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .next-step-card {
+            background: linear-gradient(135deg, #C850C0 0%, #4158D0 100%);
+            border-radius: 1.25rem;
+            padding: 2rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .next-step-card .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 0.85rem;
+        }
+
+        .next-step-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+
+        .next-step-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .next-step-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            opacity: 0.9;
+        }
+
+        .next-step-meta span::before {
+            margin-right: 0.3rem;
+        }
+
+        .next-step-btn {
+            display: inline-block;
+            background: #fff;
+            color: #4158D0;
+            font-weight: 800;
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .next-step-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
     </style>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "00ed7e6996304fa3ad49608188b2a5fc"}'></script>
 </head>
@@ -261,6 +343,22 @@
                        style="color:var(--openclaw-blue);">ai@chocolateminds.com</a>
                 </p>
                 <a href="../index.html" class="back-link" id="success-back">← Browse all courses</a>
+            </div>
+
+            <!-- Shown after successful registration -->
+            <div class="next-step-section" id="next-step-section">
+                <p class="next-step-label">Ready to go further?</p>
+                <div class="next-step-card">
+                    <div class="badge">From Idea to App · Part 2</div>
+                    <h3>Build, Publish &amp; Go Live</h3>
+                    <p>The taster shows what's possible. Part 2 is where you actually build your own app, publish it online, and leave with a live link you can share — in just 2 hours.</p>
+                    <div class="next-step-meta">
+                        <span>📅 Sunday, 5 July 2026</span>
+                        <span>⏱️ 5–7pm BST</span>
+                        <span>💷 £25</span>
+                    </div>
+                    <a href="../idea-to-app-live/index.html" class="next-step-btn">Find Out More →</a>
+                </div>
             </div>
 
         </div>
@@ -407,6 +505,7 @@
                 if (contactRes.status === 201 || contactRes.status === 204) {
                     document.getElementById('form-card').style.display = 'none';
                     document.getElementById('success-card').style.display = 'block';
+                    document.getElementById('next-step-section').style.display = 'block';
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
                     throw new Error('Brevo error ' + contactRes.status);
