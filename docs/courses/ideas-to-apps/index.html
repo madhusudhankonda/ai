@@ -11,6 +11,33 @@
     <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+
+    <!-- Announcement banner -->
+    <div id="announcement-banner" style="
+        background: linear-gradient(90deg, #C850C0 0%, #4158D0 100%);
+        color: #fff;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 200;
+    ">
+        🚀 <strong>Next Sunday — 5 July, 5–7pm BST:</strong>
+        From Idea to App to Live (Part 2) &nbsp;·&nbsp; Only £25 &nbsp;
+        <a href="../idea-to-app-live/checkout.html"
+           style="background:#fff; color:#4158D0; border-radius:999px; padding:0.25rem 1rem;
+                  font-weight:800; text-decoration:none; margin-left:0.5rem; font-size:0.88rem;">
+            Reserve now →
+        </a>
+        <button onclick="document.getElementById('announcement-banner').style.display='none'"
+                style="position:absolute; right:1rem; top:50%; transform:translateY(-50%);
+                       background:none; border:none; color:rgba(255,255,255,0.8);
+                       font-size:1.25rem; cursor:pointer; line-height:1;" aria-label="Close">
+            ×
+        </button>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
