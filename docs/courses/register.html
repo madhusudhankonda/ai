@@ -383,11 +383,12 @@
         // ──────────────────────────────────────────────────────────────────
 
         const p = new URLSearchParams(window.location.search);
-        const course = p.get('course') || '';
-        const date   = p.get('date')   || '';
-        const time   = p.get('time')   || '';
-        const price  = p.get('price')  || '';
-        const back   = p.get('back')   || '../index.html';
+        const course  = p.get('course') || '';
+        const date    = p.get('date')   || '';
+        const time    = p.get('time')   || '';
+        const price   = p.get('price')  || '';
+        const back    = p.get('back')   || '../index.html';
+        const listId  = parseInt(p.get('list') || BREVO_LIST_ID, 10) || BREVO_LIST_ID;
 
         // Back links
         document.getElementById('back-nav').href = back;
@@ -434,7 +435,7 @@
                     email,
                     firstName,
                     lastName,
-                    listIds: BREVO_LIST_ID ? [BREVO_LIST_ID] : [],
+                    listIds: listId ? [listId] : [],
                     updateEnabled: true,
                     attributes: {
                         PHONE:      phone    || '',
