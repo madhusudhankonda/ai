@@ -1,0 +1,12 @@
+/* Practical AI for Work — professional blue/amber palette
+   Load after ideas-workshop.css to override colour variables only. */
+
+:root {
+    --openclaw-blue:       #1e40af;
+    --openclaw-dark-blue:  #1e3a8a;
+    --openclaw-light-blue: #3b82f6;
+    --openclaw-yellow:     #f59e0b;
+}
+
+/* Remove the decorative lobster watermark from the hero */
+.hero::before { content: ''; }
