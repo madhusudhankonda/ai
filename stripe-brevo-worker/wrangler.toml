@@ -3,8 +3,9 @@ main = "src/worker.js"
 compatibility_date = "2026-06-01"
 
 # Non-secret config. Set your Brevo list id here (or in the Cloudflare dashboard).
+# Brevo list: folder PRACTICAL_AI_FOR_DEVS / list "25072026" (id 11)
 [vars]
-BREVO_LIST_ID = "REPLACE_WITH_BREVO_LIST_ID"
+BREVO_LIST_ID = "11"
 NOTIFY_EMAIL = "ai@chocolateminds.com"
 # NOTIFY_FROM must be a verified sender in Brevo for the sale-alert email to send.
 NOTIFY_FROM = "ai@chocolateminds.com"
