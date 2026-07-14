@@ -1,0 +1,4 @@
+# Copy to `.dev.vars` for local `wrangler dev`. NEVER commit real secrets.
+# .dev.vars is git-ignored below.
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+BREVO_API_KEY=xkeysib-xxx

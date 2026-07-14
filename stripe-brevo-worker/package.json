@@ -1,0 +1,13 @@
+{
+  "name": "stripe-brevo-bridge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that adds Stripe customers to a Brevo list to trigger a Brevo automation.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3"
+  }
+}
