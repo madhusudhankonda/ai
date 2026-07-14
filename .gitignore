@@ -205,3 +205,6 @@ cython_debug/
 book-src/node_modules/
 book-src/package-lock.json
 book-src/*.pdf
+
+# Internal business docs (kept local, not published)
+_private/
